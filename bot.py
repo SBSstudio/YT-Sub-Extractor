@@ -32,7 +32,7 @@ def start(update, context):
     """Send message on `/start`."""
     user = update.message.from_user
     logger.info("User %s started the conversation.", user.first_name)
-    update.message.reply_text('Hi !\nI am a bot to extract Youtube subtitle and send it to you as a text file.\Send me a YouTube URL.')
+    update.message.reply_text('Hello Friend !\n\nI am a bot to extract Youtube subtitle and send it to you as a text file. **Send me a YouTube URL**. \n\n@Ytsubdlbot|@SBS_Studio')
 
 def entry_dialog(update, context):
     global URL, LINK, VIDEO_ID, LANGS, LAN_CODES, STATE_LANG, conv_handler
@@ -72,12 +72,12 @@ def form_keyboard(lags, lancodes):
 def push_manual(update, context, lan_code=None):
     query = update.callback_query
     query.answer()
-    query.edit_message_text("Downloading...")
+    query.edit_message_text("Downloading . . .")
     print(f"CHAT_ID {update}")
     print(f"CHAT_ID {query.message.chat_id}")
-    text = f"<a href='{LINK}'>Video</a>"
+    text = f"<a href='{LINK}'>Video</a> /n/n@Ytsubdlbot|@SBS_Studio"
     bot.send_document(query.message.chat_id, document=open(fetch_man_chosen(VIDEO_ID, lan_code), 'rb'), caption=text, parse_mode=ParseMode.HTML)
-    query.edit_message_text("Uploaded")
+    query.edit_message_text("Uploaded.")
 
     return SECOND
 
@@ -87,7 +87,7 @@ def push_auto(update, context, lan_code=None):
     query.answer()
     res = fetch_auto_chosen(VIDEO_ID, lan_code)
     if res:
-        query.edit_message_text("Downloading...")
+        query.edit_message_text("Downloading . . .")
 
         text = f"<a href='{LINK}'>Video</a>"
         bot.send_document(query.message.chat_id, document=open(res, 'rb'), caption=text, parse_mode=ParseMode.HTML)

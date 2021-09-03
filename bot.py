@@ -32,7 +32,7 @@ def start(update, context):
     """Send message on `/start`."""
     user = update.message.from_user
     logger.info("User %s started the conversation.", user.first_name)
-    update.message.reply_text('Hello Friend !\n\nI am a bot to extract Youtube subtitle and send it to you as a text file. **Send me a YouTube URL**. \n\n@Ytsubdlbot|@SBS_Studio')
+    update.message.reply_text('Hello Friend !\n\nI am a bot to extract Youtube subtitle and send it to you as a text file. 🇸 🇪 🇳 🇩   🇲 🇪   🇦   🇾 🇴 🇺 🇹 🇺 🇧 🇪   🇺 🇷 🇱. \n\n@Ytsubdlbot|@SBS_Studio')
 
 def entry_dialog(update, context):
     global URL, LINK, VIDEO_ID, LANGS, LAN_CODES, STATE_LANG, conv_handler
